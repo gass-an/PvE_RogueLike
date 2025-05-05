@@ -26,4 +26,7 @@ public abstract class Joueur extends Personnage {
             this.money -= money;
         }
     }
+
+    // méthodes pour gérer les items.
+
 }
