@@ -1,12 +1,13 @@
 package src;
 
-abstract class Personnage {
-    private int force;
-    private int intelligence;
-    private int agilite;
-    private int pv;
-    private int pvMax;
-    private int lvl;
+public abstract class Personnage {
+    private String nom;
+    private int force, intelligence, agilite;
+    private int pv, pvMax, lvl;
+
+    public String getNom() {
+        return nom;
+    }
 
     public int getForce() {
         return force;
@@ -19,7 +20,6 @@ abstract class Personnage {
     public int getAgilite() {
         return agilite;
     }
-
 
     public int getPv() {
         return pv;
@@ -95,5 +95,4 @@ abstract class Personnage {
             this.pvMax = 1;
         }
     }
-
 }
