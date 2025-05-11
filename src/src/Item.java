@@ -1,19 +1,19 @@
 package src;
 
 public class Item {
+	private TypeItem type;
 	private String nom;
 	private int prix;
 	private int force, agilite, intelligence;
-	private String type;
 	private int niv;
 	 
-	public Item(String nom, int prix, int force, int agilite, int intelligence, String type, int niv) {
+	public Item(TypeItem type, String nom, int prix, int force, int agilite, int intelligence, int niv) {
+		this.type = type;
 		this.nom = nom;
 		this.prix = prix;
 		this.force = force;
 		this.agilite = agilite;
 		this.intelligence = intelligence;
-		this.type = type;
 		this.niv = niv;
 	}
 	
@@ -37,7 +37,7 @@ public class Item {
 		return intelligence;
 	}
 	
-	public String getType() {
+	public TypeItem getType() {
 		return type;
 	}
 	
