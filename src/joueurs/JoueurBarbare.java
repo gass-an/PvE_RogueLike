@@ -4,31 +4,20 @@ import java.util.HashMap;
 
 import src.Joueur;
 import src.Personnage;
-import src.interfacesPersonnages.Paysant;
+import src.interfacesPersonnages.Barbare;
 import src.Item;
 
-public class JoueurPaysant extends Joueur implements Paysant {
+public class JoueurBarbare extends Joueur implements Barbare {
     protected int money;
     protected HashMap<String, Item> inventaire = new HashMap<String, Item>();
     
-    // Paramètres de base pour un nouveau Joueur.
-    public JoueurPaysant(String nom) {
-        this.nom = nom;
-        this.force = 1;
-        this.intelligence = 1;
-        this.agilite = 1;
-        this.pvMax = 30;
-        this.pv = pvMax;
-        this.lvl = 0;
-        this.money = 20;
-    }
     
-    public JoueurPaysant(
+    public JoueurBarbare(
         String nom, int force, int intelligence, int agilite,
         int pv, int pvMax, int lvl, int money) {
             this.nom=nom;
-            this.force=force;
-            this.intelligence=intelligence;
+            this.force=force + intelligence;
+            this.intelligence=0;
             this.agilite=agilite;
             this.pvMax=pvMax;
             this.pv=pv;
@@ -40,13 +29,7 @@ public class JoueurPaysant extends Joueur implements Paysant {
 
         @Override
         public void attaqueMelee(Personnage cible) {
-            cible.recoitDegatsMelee(force);
-            
-        }
-
-        @Override
-        public void attaqueDistance(Personnage cible) {
-            cible.recoitDegatsDistance(intelligence);
+            cible.recoitDegatsDistance(force);
             
         }
 

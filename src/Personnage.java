@@ -1,9 +1,11 @@
 package src;
 
 public abstract class Personnage {
-    private String nom;
-    private int force, intelligence, agilite;
-    private int pv, pvMax, lvl;
+    protected String nom;
+    protected int force, intelligence, agilite;
+    protected int pv, pvMax, lvl;
+    protected boolean onDefenseDistance = false; 
+    protected boolean onDefenseMelee = false;
 
     public String getNom() {
         return nom;
@@ -33,38 +35,23 @@ public abstract class Personnage {
         return lvl;
     }
 
-    public void addForce(int force) {
-        this.force += force;
-    }
-
-    public void addIntelligence(int intelligence) {
-        this.intelligence += intelligence;
-    }
-
-    public void addAgilite(int agilite) {
-        this.agilite += agilite;
-    } 
-
-    public void addPV(int pv) {
-        this.pv += pv;
-        if (this.pv > pvMax) {
-            this.pv = pvMax;
-        }
-    }
-
-    public void addPVMax (int pvMax) {
-        this.pvMax += pvMax;
-    }
-
     public void addLvl() {
         this.lvl += 1;
     }
 
+    public void addForce(int force) {
+        this.force += force;
+    }
+   
     public void removeForce(int force) {
         this.force -= force;
         if (this.force < 0) {
             this.force = 0;
         }
+    }
+
+    public void addIntelligence(int intelligence) {
+        this.intelligence += intelligence;
     }
 
     public void removeIntelligence(int force) {
@@ -74,6 +61,10 @@ public abstract class Personnage {
         }
     }
 
+    public void addAgilite(int agilite) {
+        this.agilite += agilite;
+    } 
+
     public void removeAgilite (int agilite) {
         this.agilite -= agilite;
         if (this.agilite < 0) {
@@ -81,11 +72,8 @@ public abstract class Personnage {
         }
     }
 
-    public void removePV (int pv) {
-        this.pv -= pv;
-        if (this.pv < 0) {
-            this.pv = 0;
-        }
+    public void addPVMax (int pvMax) {
+        this.pvMax += pvMax;
     }
 
     public void removePVMax (int pvMax) {
@@ -94,5 +82,41 @@ public abstract class Personnage {
         if (this.pvMax < 1) {
             this.pvMax = 1;
         }
+    }
+
+    public void addPV(int pv) {
+        this.pv += pv;
+        if (this.pv > pvMax) {
+            this.pv = pvMax;
+        }
+    }
+    
+    protected void removePV (int pv) {
+        this.pv -= pv;
+        if (this.pv < 0) {
+            this.pv = 0;
+        }
+    }
+
+    public void recoitDegatsDistance(int degatsDistance){
+        if (onDefenseDistance){
+            degatsDistance = degatsDistance - agilite;
+        }
+        if (degatsDistance < 0) {degatsDistance = 0;}
+        this.removePV(degatsDistance);
+    }
+
+    public void recoitDegatsMelee(int degatsMelee){
+        if (onDefenseMelee){
+            degatsMelee = degatsMelee - agilite;
+        }
+        if (degatsMelee < 0) {degatsMelee = 0;}
+        this.removePV(degatsMelee);
+    }
+
+    // à utiliser au début de chaque tour.
+    public void resetDefense(){
+        this.onDefenseDistance = false;
+        this.onDefenseMelee = false;
     }
 }
