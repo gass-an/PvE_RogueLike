@@ -14,7 +14,11 @@ Développement d'un jeu PvE en mode Rogue-Like dans le cadre de la licence MIAGE
 
 ```bash
 git checkout dev
+
 git pull origin dev
+OU
+git fetch origin (mieux)
+
 git checkout -b feat/nom-de-la-feature
 git add .
 git commit -m "Ajout d'une feature"

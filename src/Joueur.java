@@ -27,6 +27,11 @@ public abstract class Joueur extends Personnage {
         }
     }
 
-    // méthodes pour gérer les items.
+    public void newItem(Item item) {
+        inventaire.put(item.getType(), item);
+    }
 
+    public void removeItem(Item item) {
+        inventaire.remove(item.getType());
+    }
 }
