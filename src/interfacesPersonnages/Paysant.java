@@ -1,6 +1,6 @@
-package src.interfacesPersonnages;
+package interfacesPersonnages;
 
-import src.Personnage;
+import model.Personnage;
 
 public interface Paysant {
     public void attaqueDistance(Personnage cible);

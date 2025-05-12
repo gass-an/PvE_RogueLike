@@ -1,5 +1,4 @@
-package src;
-
+package model;
 public class Item {
 	private TypeItem type;
 	private String nom;

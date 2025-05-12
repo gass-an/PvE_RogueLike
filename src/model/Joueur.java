@@ -1,11 +1,10 @@
-package src;
-
+package model;
 import java.util.HashMap;
 
 public abstract class Joueur extends Personnage {
-    private HashMap<TypeItem, Item> inventaire = new HashMap<TypeItem, Item>();
-    private HashMap<TypeItem, Item> equipement = new HashMap<TypeItem, Item>();
-    private int money;
+    protected HashMap<TypeItem, Item> inventaire = new HashMap<TypeItem, Item>();
+    protected HashMap<TypeItem, Item> equipement = new HashMap<TypeItem, Item>();
+    protected int money;
     
     public int getMoney() {
         return money;

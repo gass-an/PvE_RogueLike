@@ -1,5 +1,4 @@
-package src;
-
+package model;
 public enum TypeItem {
 	HELMET,
 	ARMOR,
