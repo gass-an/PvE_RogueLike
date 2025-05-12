@@ -1,16 +1,10 @@
-package src.joueurs;
+package joueurs;
 
-import java.util.HashMap;
-
-import src.Joueur;
-import src.Personnage;
-import src.interfacesPersonnages.Magicien;
-import src.Item;
+import interfacesPersonnages.Magicien;
+import model.Joueur;
+import model.Personnage;
 
 public class JoueurMagicien extends Joueur implements Magicien {
-    protected int money;
-    protected HashMap<String, Item> inventaire = new HashMap<String, Item>();
-    
     
     public JoueurMagicien(
         String nom, int force, int intelligence, int agilite,
@@ -23,25 +17,20 @@ public class JoueurMagicien extends Joueur implements Magicien {
             this.pv=pv;
             this.lvl=lvl;
             this.money=money;
-        }
+    }
 
-        //faire le lien entre les attaques d'un perso et les défences ou non de l'autre.
+    @Override
+    public void attaqueDistance(Personnage cible) {
+        cible.recoitDegatsDistance(intelligence);
+    }
 
-        @Override
-        public void attaqueDistance(Personnage cible) {
-            cible.recoitDegatsDistance(intelligence);
-            
-        }
+    @Override
+    public void paradeMelee() {
+        this.onDefenseMelee = true; 
+    }
 
-        @Override
-        public void paradeMelee() {
-            this.onDefenseMelee = true;
-            
-        }
-
-        @Override
-        public void paradeDistance() {
-            this.onDefenseDistance = true;
-            
-        }
+    @Override
+    public void paradeDistance() {
+        this.onDefenseDistance = true; 
+    }
 }

@@ -1,6 +1,6 @@
-package src.interfacesPersonnages;
+package interfacesPersonnages;
 
-import src.Personnage;
+import model.Personnage;
 
 public interface Barbare {
     public void attaqueMelee(Personnage cible);

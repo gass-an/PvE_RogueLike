@@ -1,6 +1,5 @@
-package src;
-
-public abstract class Personnage {
+package model;
+public abstract class Personnage {    
     protected String nom;
     protected int force, intelligence, agilite;
     protected int pv, pvMax, lvl;

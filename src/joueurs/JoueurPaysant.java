@@ -1,15 +1,10 @@
-package src.joueurs;
+package joueurs;
 
-import java.util.HashMap;
-
-import src.Joueur;
-import src.Personnage;
-import src.interfacesPersonnages.Paysant;
-import src.Item;
+import interfacesPersonnages.Paysant;
+import model.Joueur;
+import model.Personnage;
 
 public class JoueurPaysant extends Joueur implements Paysant {
-    protected int money;
-    protected HashMap<String, Item> inventaire = new HashMap<String, Item>();
     
     // Paramètres de base pour un nouveau Joueur.
     public JoueurPaysant(String nom) {
@@ -34,31 +29,25 @@ public class JoueurPaysant extends Joueur implements Paysant {
             this.pv=pv;
             this.lvl=lvl;
             this.money=money;
-        }
+    }
 
-        //faire le lien entre les attaques d'un perso et les défences ou non de l'autre.
+    @Override
+    public void attaqueMelee(Personnage cible) {
+        cible.recoitDegatsMelee(force);
+    }
 
-        @Override
-        public void attaqueMelee(Personnage cible) {
-            cible.recoitDegatsMelee(force);
-            
-        }
+    @Override
+    public void attaqueDistance(Personnage cible) {
+        cible.recoitDegatsDistance(intelligence); 
+    }
 
-        @Override
-        public void attaqueDistance(Personnage cible) {
-            cible.recoitDegatsDistance(intelligence);
-            
-        }
+    @Override
+    public void paradeMelee() {
+        this.onDefenseMelee = true; 
+    }
 
-        @Override
-        public void paradeMelee() {
-            this.onDefenseMelee = true;
-            
-        }
-
-        @Override
-        public void paradeDistance() {
-            this.onDefenseDistance = true;
-            
-        }
+    @Override
+    public void paradeDistance() {
+        this.onDefenseDistance = true; 
+    }
 }
