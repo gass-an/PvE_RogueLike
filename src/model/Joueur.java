@@ -2,7 +2,7 @@ package model;
 import java.util.HashMap;
 
 public abstract class Joueur extends Personnage {
-    protected HashMap<TypeItem, Item> inventaire = new HashMap<TypeItem, Item>();
+    protected HashMap<String, Item> inventaire = new HashMap<String, Item>();
     protected HashMap<TypeItem, Item> equipement = new HashMap<TypeItem, Item>();
     protected int money;
     
@@ -28,22 +28,29 @@ public abstract class Joueur extends Personnage {
     }
 
     public void newItem(Item item) {
-        inventaire.put(item.getType(), item);
+        inventaire.put(item.getNom(), item);
     }
 
     public void removeItem(Item item) {
-        inventaire.remove(item.getType());
+        inventaire.remove(item.getNom());
     }
     
-    public void equiper(Item itemEquip) {
-    	Item ancienItem = equipement.put(itemEquip.getType(), itemEquip);
+    public void equiperItem(Item itemEquip) {
+    	Item ancienItem = equipement.get(itemEquip.getType());
+        equipement.put(itemEquip.getType(), itemEquip);
     	
     	if(ancienItem != null) {
-    		System.out.println("Nouvel équipement : " + itemEquip.getNom());
+            System.out.println("Nouvel équipement : " + itemEquip.getNom());
     	}
     	
     	else {
     		System.out.println("Pièce équipée : " + itemEquip.getNom());
     	}
+    }
+
+    public void desequiperItem(Item itemEquip) {
+    	equipement.remove(itemEquip.getType());
+    	System.out.println("L'item : " + itemEquip.getNom() + "est déséquipé.");
+    	newItem(itemEquip);
     }
 }
