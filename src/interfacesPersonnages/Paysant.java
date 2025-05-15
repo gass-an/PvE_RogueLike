@@ -1,4 +1,5 @@
-package src.interfacesPersonnages;
+//package src.interfacesPersonnages;
+package interfacesPersonnages;
 
 import Personnage;
 
