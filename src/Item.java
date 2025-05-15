@@ -1,4 +1,4 @@
-package src;
+//package src;
 
 public class Item {
 	private TypeItem type;
@@ -43,14 +43,6 @@ public class Item {
 	
 	public int getNiv() {
 		return niv;
-	}
-	
-	public void equiper() {
-		
-	}
-	
-	public void desequiper() {
-		
 	}
 	
 	/*

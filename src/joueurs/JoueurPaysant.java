@@ -1,9 +1,9 @@
-package src.joueurs;
+package joueurs;
 
 import java.util.HashMap;
 
-import src.Joueur;
-import src.Personnage;
+import Joueur;
+import Personnage;
 import src.interfacesPersonnages.Paysant;
 import src.Item;
 

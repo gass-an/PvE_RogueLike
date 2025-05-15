@@ -1,4 +1,4 @@
-package src;
+//package src;
 
 import java.util.HashMap;
 
@@ -36,7 +36,7 @@ public abstract class Joueur extends Personnage {
         inventaire.remove(item.getType());
     }
     
-    public void equiper(Item itemEquip) {
+    public void equiperItem(Item itemEquip) {
     	Item ancienItem = equipement.put(itemEquip.getType(), itemEquip);
     	
     	if(ancienItem != null) {
@@ -46,5 +46,11 @@ public abstract class Joueur extends Personnage {
     	else {
     		System.out.println("Pièce équipée : " + itemEquip.getNom());
     	}
+    }
+    
+    public void desequiperItem(Item itemEquip) {
+    	equipement.remove(itemEquip.getType());
+    	System.out.println("L'item : " + itemEquip.getNom());
+    	newItem(itemEquip);
     }
 }

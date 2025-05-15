@@ -1,6 +1,6 @@
 package src.interfacesPersonnages;
 
-import src.Personnage;
+import Personnage;
 
 public interface Paysant {
     public void attaqueDistance(Personnage cible);

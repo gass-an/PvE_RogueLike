@@ -1,4 +1,4 @@
-package src;
+//package src;
 
 public abstract class Personnage {
     private String nom;
