@@ -43,4 +43,8 @@ public class Item {
 	public int getNiv() {
 		return niv;
 	}
+	
+	public void afficherItem() {
+		System.out.println(nom  + " | Force : " + force + " | Type : " + type + " | Agilite : " + agilite + " | Intelligence : " + intelligence + " | Niv : " + niv);
+	}
 }
