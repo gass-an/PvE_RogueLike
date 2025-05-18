@@ -1,7 +1,6 @@
 package joueurs;
 
 import interfacesPersonnages.Magicien;
-import model.Joueur;
 import model.Personnage;
 
 public class JoueurMagicien extends Joueur implements Magicien {

@@ -1,5 +1,9 @@
-package model;
+package joueurs;
 import java.util.HashMap;
+
+import model.Item;
+import model.Personnage;
+import model.TypeItem;
 
 public abstract class Joueur extends Personnage {
     protected HashMap<String, Item> inventaire = new HashMap<String, Item>();

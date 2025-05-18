@@ -1,7 +1,6 @@
 package joueurs;
 
 import interfacesPersonnages.Barbare;
-import model.Joueur;
 import model.Personnage;
 
 public class JoueurBarbare extends Joueur implements Barbare {
