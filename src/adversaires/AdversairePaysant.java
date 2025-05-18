@@ -46,15 +46,6 @@ public class AdversairePaysant extends Personnage implements Paysant {
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true; 
-    } 
-
-    public void afficherStats() {
-        System.out.println("\nNom: " + nom);
-        System.out.println("PV: " + pv);
-        System.out.println("Level: " + lvl);
-        System.out.println("Force: " + force);
-        System.out.println("Intelligence: " + intelligence);
-        System.out.println("Agilité: " + agilite);
     }
 
     public static void main(String[] args) {
