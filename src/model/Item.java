@@ -1,13 +1,13 @@
 package model;
 public class Item {
-	private TypeItem type;
+	private String type;
 	private String nom;
 	private int prix;
 	private int force, agilite, intelligence;
 	private int niv;
 	 
-	public Item(TypeItem type, String nom, int prix, int force, int agilite, int intelligence, int niv) {
-		this.type = type;
+	public Item(String typeItem, String nom, int prix, int force, int agilite, int intelligence, int niv) {
+		this.type = typeItem;
 		this.nom = nom;
 		this.prix = prix;
 		this.force = force;
@@ -36,7 +36,7 @@ public class Item {
 		return intelligence;
 	}
 	
-	public TypeItem getType() {
+	public String getType() {
 		return type;
 	}
 	
@@ -44,20 +44,7 @@ public class Item {
 		return niv;
 	}
 	
-	public void equiper() {
-		
+	public void afficherItem() {
+		System.out.println(nom  + " | Force : " + force + " | Type : " + type + " | Agilite : " + agilite + " | Intelligence : " + intelligence + " | Niv : " + niv);
 	}
-	
-	public void desequiper() {
-		
-	}
-	
-	/*
-	public Item acheter() {
-		
-	}
-	
-	public int vendre() {
-	}
-	*/
 }

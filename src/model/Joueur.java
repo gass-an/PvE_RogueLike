@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 public abstract class Joueur extends Personnage {
     protected HashMap<String, Item> inventaire = new HashMap<String, Item>();
-    protected HashMap<TypeItem, Item> equipement = new HashMap<TypeItem, Item>();
+    protected HashMap<String, Item> equipement = new HashMap<String, Item>();
     protected int money;
     
     public int getMoney() {
