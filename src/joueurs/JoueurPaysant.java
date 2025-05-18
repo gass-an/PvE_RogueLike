@@ -1,7 +1,6 @@
 package joueurs;
 
 import interfacesPersonnages.Paysant;
-import model.Joueur;
 import model.Personnage;
 
 public class JoueurPaysant extends Joueur implements Paysant {
