@@ -7,6 +7,7 @@ import joueurs.Joueur;
 public class Game {
     private Joueur joueur;
     private Adversaire adversaire;
+    private Combat combat;
     private CreationEntite creation = new CreationEntite();
     
     public void start() {
@@ -17,5 +18,8 @@ public class Game {
         adversaire = creation.creationAdversaire(joueur.getLvl());
         adversaire.sePresente();
         adversaire.afficherStats();
+
+        combat = new Combat(joueur, adversaire);
+        combat.lancer();
     } 
 }

@@ -1,9 +1,11 @@
 package adversaires;
 
+import java.util.List;
 import java.util.Random;
 
 import interfacesPersonnages.Barbare;
 import model.Personnage;
+import Game.Action;
 
 public class AdversaireBarbare extends Adversaire implements Barbare {
     public AdversaireBarbare(String nom, int lvl){
@@ -48,5 +50,14 @@ public class AdversaireBarbare extends Adversaire implements Barbare {
 
         adv1.afficherStats();
         adv2.afficherStats();
+    }
+    
+    @Override
+    public List<Action> getActionsDisponibles() {
+    return List.of(
+        Action.ATTAQUE_MELEE,
+        Action.PARADE_MELEE,
+        Action.PARADE_DISTANCE
+        );
     }
 }

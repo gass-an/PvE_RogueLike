@@ -1,7 +1,10 @@
 package joueurs;
 
+import java.util.List;
+
 import interfacesPersonnages.Paysant;
 import model.Personnage;
+import Game.Action;
 
 public class JoueurPaysant extends Joueur implements Paysant {
     
@@ -48,5 +51,15 @@ public class JoueurPaysant extends Joueur implements Paysant {
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true; 
+    }
+
+    @Override
+    public List<Action> getActionsDisponibles() {
+    return List.of(
+        Action.ATTAQUE_MELEE,
+        Action.ATTAQUE_DISTANCE,
+        Action.PARADE_MELEE,
+        Action.PARADE_DISTANCE
+        );
     }
 }
