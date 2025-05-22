@@ -6,11 +6,11 @@ import model.Personnage;
 public class JoueurPaysant extends Joueur implements Paysant {
     
     // Paramètres de base pour un nouveau Joueur.
-    public JoueurPaysant(String nom) {
+    public JoueurPaysant(String nom, int force, int intelligence, int agilite) {
         this.nom = nom;
-        this.force = 1;
-        this.intelligence = 1;
-        this.agilite = 1;
+        this.force = force;
+        this.intelligence = intelligence;
+        this.agilite = agilite;
         this.pvMax = 30;
         this.pv = pvMax;
         this.lvl = 0;

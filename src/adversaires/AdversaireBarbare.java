@@ -5,7 +5,7 @@ import java.util.Random;
 import interfacesPersonnages.Barbare;
 import model.Personnage;
 
-public class AdversaireBarbare extends Personnage implements Barbare {
+public class AdversaireBarbare extends Adversaire implements Barbare {
     public AdversaireBarbare(String nom, int lvl){
         int totalStats = lvl + 3;
         this.nom = nom;
@@ -35,6 +35,11 @@ public class AdversaireBarbare extends Personnage implements Barbare {
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true; 
+    }
+    
+    @Override
+    public void sePresente() {
+        System.out.println(String.format("\nJe suis %s le Barbare", nom));  
     }
 
     public static void main(String[] args) {

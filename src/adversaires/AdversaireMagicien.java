@@ -5,7 +5,7 @@ import java.util.Random;
 import interfacesPersonnages.Magicien;
 import model.Personnage;
 
-public class AdversaireMagicien extends Personnage implements Magicien {
+public class AdversaireMagicien extends Adversaire implements Magicien {
     public AdversaireMagicien(String nom, int lvl){
         int totalStats = lvl + 3;
         this.nom = nom;
@@ -35,6 +35,11 @@ public class AdversaireMagicien extends Personnage implements Magicien {
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true; 
+    }
+
+    @Override
+    public void sePresente() {
+        System.out.println(String.format("\nJe suis %s le Magicien", nom));  
     }
 
     public static void main(String[] args) {
