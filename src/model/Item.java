@@ -1,12 +1,12 @@
 package model;
 public class Item {
-	private String type;
+	private TypeItem type;
 	private String nom;
 	private int prix;
 	private int force, agilite, intelligence;
 	private int niv;
 	 
-	public Item(String typeItem, String nom, int prix, int force, int agilite, int intelligence, int niv) {
+	public Item(TypeItem typeItem, String nom, int prix, int force, int agilite, int intelligence, int niv) {
 		this.type = typeItem;
 		this.nom = nom;
 		this.prix = prix;
@@ -36,7 +36,7 @@ public class Item {
 		return intelligence;
 	}
 	
-	public String getType() {
+	public TypeItem getType() {
 		return type;
 	}
 	
