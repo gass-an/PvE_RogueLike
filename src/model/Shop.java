@@ -1,16 +1,23 @@
 package model;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import model.Item;
 
 public class Shop{
 	private HashMap<String, Item> shop = new HashMap<String, Item>();
+	private Random random = new Random();
+	
+	public TypeItem getRandomType() {
+		TypeItem[] values = TypeItem.values();
+		return values[random.nextInt(values.length)];
+	}
 	
 	public void genererItem() {
 		int nbItem = 3;
 		for(int i=0; i<nbItem; i++) {
-			String type = "";
+			TypeItem type = getRandomType();
 			String nom = "" + (i+1);
 			int prix = 5;
 			int force = 1;
