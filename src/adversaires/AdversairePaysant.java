@@ -5,7 +5,7 @@ import java.util.Random;
 import interfacesPersonnages.Paysant;
 import model.Personnage;
 
-public class AdversairePaysant extends Personnage implements Paysant {
+public class AdversairePaysant extends Adversaire implements  Paysant {
     
     public AdversairePaysant(String nom, int lvl){
         int totalStats = lvl + 3;
@@ -46,6 +46,11 @@ public class AdversairePaysant extends Personnage implements Paysant {
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true; 
+    }
+
+    @Override
+    public void sePresente() {
+        System.out.println(String.format("\nJe suis %s le Paysant", nom));  
     }
 
     public static void main(String[] args) {
