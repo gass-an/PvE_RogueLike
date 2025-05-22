@@ -3,11 +3,13 @@ package model;
 import java.util.HashMap;
 import java.util.Random;
 
+import joueurs.Joueur;
 import model.Item;
 
 public class Shop{
 	private HashMap<String, Item> shop = new HashMap<String, Item>();
 	private Random random = new Random();
+	private Personnage personnage;
 	
 	public TypeItem getRandomType() {
 		TypeItem[] values = TypeItem.values();
@@ -23,7 +25,7 @@ public class Shop{
 			int force = 1;
 			int agilite = 1;
 			int intelligence = 1;
-			int niv = 1;
+			int niv = Joueur.instance.getLvl();
 			
 			Item item = new Item(type, nom, prix, force, agilite, intelligence, niv);
 			shop.put(nom, item);

@@ -9,6 +9,7 @@ public abstract class Joueur extends Personnage {
     protected HashMap<String, Item> inventaire = new HashMap<String, Item>();
     protected HashMap<TypeItem, Item> equipement = new HashMap<TypeItem, Item>();
     protected int money;
+    public static Joueur instance;
     
     public int getMoney() {
         return money;
