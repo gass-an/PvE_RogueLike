@@ -1,7 +1,7 @@
 package model;
 public enum TypeItem {
-	HELMET,
-	ARMOR,
-	BOOT,
-	WEAPON
+	TETE,
+	TORSE,
+	BOTTE,
+	ARME
 }
