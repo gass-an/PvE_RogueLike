@@ -1,7 +1,10 @@
 package joueurs;
 
+import java.util.List;
+
 import interfacesPersonnages.Magicien;
 import model.Personnage;
+import Game.Action;
 
 public class JoueurMagicien extends Joueur implements Magicien {
     
@@ -31,5 +34,14 @@ public class JoueurMagicien extends Joueur implements Magicien {
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true; 
+    }
+
+    @Override
+    public List<Action> getActionsDisponibles() {
+    return List.of(
+        Action.ATTAQUE_DISTANCE,
+        Action.PARADE_MELEE,
+        Action.PARADE_DISTANCE
+        );
     }
 }

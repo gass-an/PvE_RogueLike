@@ -1,7 +1,11 @@
 package joueurs;
 
+import java.util.List;
+
 import interfacesPersonnages.Barbare;
 import model.Personnage;
+import Game.Action;
+
 
 public class JoueurBarbare extends Joueur implements Barbare {
 
@@ -31,5 +35,14 @@ public class JoueurBarbare extends Joueur implements Barbare {
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true;   
+    }
+
+    @Override
+    public List<Action> getActionsDisponibles() {
+    return List.of(
+        Action.ATTAQUE_MELEE,
+        Action.PARADE_MELEE,
+        Action.PARADE_DISTANCE
+        );
     }
 }

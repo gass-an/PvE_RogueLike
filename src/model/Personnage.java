@@ -1,4 +1,8 @@
 package model;
+
+import java.util.List;
+import Game.Action;
+
 public abstract class Personnage {    
     protected String nom;
     protected int force, intelligence, agilite;
@@ -6,6 +10,8 @@ public abstract class Personnage {
     protected boolean onDefenseDistance = false; 
     protected boolean onDefenseMelee = false;
 
+    abstract public List<Action> getActionsDisponibles();
+    
     public String getNom() {
         return nom;
     }

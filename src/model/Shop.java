@@ -3,8 +3,6 @@ package model;
 import java.util.HashMap;
 import java.util.Random;
 
-import model.Item;
-
 public class Shop{
 	private HashMap<String, Item> shop = new HashMap<String, Item>();
 	private Random random = new Random();
@@ -13,7 +11,7 @@ public class Shop{
 		TypeItem[] values = TypeItem.values();
 		return values[random.nextInt(values.length)];
 	}
-	
+
 	public void genererItem() {
 		int nbItem = 3;
 		for(int i=0; i<nbItem; i++) {
@@ -24,12 +22,12 @@ public class Shop{
 			int agilite = 1;
 			int intelligence = 1;
 			int niv = 1;
-			
+
 			Item item = new Item(type, nom, prix, force, agilite, intelligence, niv);
 			shop.put(nom, item);
 		}
 	}
-	
+
 	public void afficherShop() {
 		System.out.println("-----------------Bienvenue dans le shop !-----------------");
 		for(Item item : shop.values()) {

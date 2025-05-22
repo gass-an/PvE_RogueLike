@@ -12,7 +12,7 @@ import adversaires.AdversaireNom;
 import adversaires.AdversairePaysant;
 
 public class CreationEntite {
-    private Scanner scanner = Input.getScanner();
+    private final Scanner scanner = Input.getScanner();
 
     public Joueur creationJoueur(){
         String nom;
