@@ -1,11 +1,13 @@
 package adversaires;
 
+import java.util.List;
 import java.util.Random;
 
 import interfacesPersonnages.Magicien;
 import model.Personnage;
+import Game.Action;
 
-public class AdversaireMagicien extends Adversaire implements Magicien {
+public class AdversaireMagicien extends Adversaire implements Magicien{
     public AdversaireMagicien(String nom, int lvl){
         int totalStats = lvl + 3;
         this.nom = nom;
@@ -48,5 +50,13 @@ public class AdversaireMagicien extends Adversaire implements Magicien {
 
         adv1.afficherStats();
         adv2.afficherStats();
+    }
+    @Override
+    public List<Action> getActionsDisponibles() {
+    return List.of(
+        Action.ATTAQUE_DISTANCE,
+        Action.PARADE_MELEE,
+        Action.PARADE_DISTANCE
+        );
     }
 }

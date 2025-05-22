@@ -1,11 +1,13 @@
 package adversaires;
 
+import java.util.List;
 import java.util.Random;
 
 import interfacesPersonnages.Paysant;
 import model.Personnage;
+import Game.Action;
 
-public class AdversairePaysant extends Adversaire implements  Paysant {
+public class AdversairePaysant extends Adversaire implements Paysant {
     
     public AdversairePaysant(String nom, int lvl){
         int totalStats = lvl + 3;
@@ -59,5 +61,15 @@ public class AdversairePaysant extends Adversaire implements  Paysant {
 
         adv1.afficherStats();
         adv2.afficherStats();
+    }
+
+    @Override
+    public List<Action> getActionsDisponibles() {
+    return List.of(
+        Action.ATTAQUE_MELEE,
+        Action.ATTAQUE_DISTANCE,
+        Action.PARADE_MELEE,
+        Action.PARADE_DISTANCE
+        );
     }
 }

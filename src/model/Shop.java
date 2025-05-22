@@ -15,7 +15,7 @@ public class Shop{
 		TypeItem[] values = TypeItem.values();
 		return values[random.nextInt(values.length)];
 	}
-	
+
 	public void genererItem() {
 		int nbItem = 3;
 		for(int i=0; i<nbItem; i++) {
@@ -26,12 +26,12 @@ public class Shop{
 			int agilite = 1;
 			int intelligence = 1;
 			int niv = Joueur.instance.getLvl();
-			
+      
 			Item item = new Item(type, nom, prix, force, agilite, intelligence, niv);
 			shop.put(nom, item);
 		}
 	}
-	
+
 	public void afficherShop() {
 		System.out.println("-----------------Bienvenue dans le shop !-----------------");
 		for(Item item : shop.values()) {

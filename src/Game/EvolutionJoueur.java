@@ -7,9 +7,9 @@ import joueurs.JoueurBarbare;
 import joueurs.JoueurMagicien;
 
 public class EvolutionJoueur {
-    private Scanner scanner = Input.getScanner();
-    private int levelForEvolution = 6;
-    private Joueur joueur;
+    private final Scanner scanner = Input.getScanner();
+    private final int levelForEvolution = 6;
+    private final Joueur joueur;
     
     public EvolutionJoueur(Joueur joueur){
         this.joueur=joueur;
@@ -22,7 +22,7 @@ public class EvolutionJoueur {
             );
     }
 
-    public void evolution(){
+    public Joueur evolution() {
         if (joueur.getForce() >= levelForEvolution && 
             joueur.getIntelligence() >= levelForEvolution){
                 System.out.print("Vous pouvez évoluer en Barbare ou en Magicien :\n" + 
@@ -33,16 +33,19 @@ public class EvolutionJoueur {
 
                 switch (choix) {
                     case 1 -> {
-                        joueur = devientBarbare(joueur);
-                            System.out.println("Vous êtes désormais un barbare !");
+                        System.out.println("Vous êtes désormais un barbare !");
+                        return devientBarbare(joueur);
                         }
                 
                     case 2 -> {
-                        joueur = devientMagicien(joueur);
-                            System.out.println("Vous êtes désormais un magicien !");
+                        System.out.println("Vous êtes désormais un magicien !");
+                        return devientMagicien(joueur);
                         }
                         
-                    default -> System.out.println("Vous n'évoluez pas sur ce tour");
+                    default -> {
+                        System.out.println("Vous n'évoluez pas sur ce tour");
+                        return joueur;
+                    }
                 }
         }
         if (joueur.getForce() >= levelForEvolution){
@@ -52,10 +55,13 @@ public class EvolutionJoueur {
             int choix = scanner.nextInt();
             switch (choix) {
                 case 1 -> {
-                    joueur = devientBarbare(joueur);
-                        System.out.println("Vous êtes désormais un barbare !");
+                    System.out.println("Vous êtes désormais un barbare !");
+                    return devientBarbare(joueur);
                     }
-                default -> System.out.println("Vous n'évoluez pas sur ce tour");
+                default -> {
+                    System.out.println("Vous n'évoluez pas sur ce tour");
+                    return joueur;
+                }
             }
         }
         if (joueur.getIntelligence() >= levelForEvolution){
@@ -65,12 +71,16 @@ public class EvolutionJoueur {
             int choix = scanner.nextInt();
             switch (choix) {
                 case 1 -> {
-                    joueur = devientMagicien(joueur);
-                        System.out.println("Vous êtes désormais un barbare !");
+                    System.out.println("Vous êtes désormais un barbare !");
+                    return devientMagicien(joueur);
                     }
-                default -> System.out.println("Vous n'évoluez pas sur ce tour");
+                default ->{ 
+                    System.out.println("Vous n'évoluez pas sur ce tour");
+                    return joueur;
+                }
             }
         }
+        return joueur;
     }
     
     private Joueur devientBarbare(Joueur joueur) {
