@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Shop{
-	private HashMap<String, Item> shop = new HashMap<String, Item>();
+	private HashMap<Integer, Item> shop = new HashMap<Integer, Item>();
 	private Random random = new Random();
 	
 	public TypeItem getRandomType() {
@@ -14,17 +14,27 @@ public class Shop{
 
 	public void genererItem() {
 		int nbItem = 3;
+		Random rand = new Random();
+		int nbStats = 3;
 		for(int i=0; i<nbItem; i++) {
-			TypeItem type = getRandomType();
-			String nom = "" + (i+1);
-			int prix = 5;
-			int force = 1;
-			int agilite = 1;
-			int intelligence = 1;
-			int niv = 1;
+        
+			int stat1 = rand.nextInt(nbStats + 1);
+			int stat2 = rand.nextInt(nbStats + 1);
+			
+			int min = Math.min(stat1, stat2);
+			int max = Math.max(stat1, stat2);
 
-			Item item = new Item(type, nom, prix, force, agilite, intelligence, niv);
-			shop.put(nom, item);
+
+			TypeItem type = getRandomType();
+			String nom = type.toString().toLowerCase() + " " + (i+1);
+			int prix = 5;
+			int force = min;
+			int agilite = max - min;
+			int intelligence = nbStats - max;
+			int number = i+1;
+
+			Item item = new Item(number, type, nom, prix, force, agilite, intelligence);
+			shop.put(number, item);
 		}
 	}
 
@@ -35,4 +45,11 @@ public class Shop{
 		}
 	}
 
+	public Item getItemByNumber(int number) {
+    	return shop.get(number);
+	}
+
+	public HashMap<Integer, Item> getShop() {
+		return shop;
+	}
 }

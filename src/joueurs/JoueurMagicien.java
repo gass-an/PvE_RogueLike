@@ -2,9 +2,9 @@ package joueurs;
 
 import java.util.List;
 
+import game.Action;
 import interfacesPersonnages.Magicien;
 import model.Personnage;
-import Game.Action;
 
 public class JoueurMagicien extends Joueur implements Magicien {
     
@@ -23,7 +23,7 @@ public class JoueurMagicien extends Joueur implements Magicien {
 
     @Override
     public void attaqueDistance(Personnage cible) {
-        cible.recoitDegatsDistance(intelligence);
+        cible.recoitDegatsDistance(getIntelligence() + 1);
     }
 
     @Override

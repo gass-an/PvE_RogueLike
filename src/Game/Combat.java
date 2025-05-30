@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 import java.util.List;
 import java.util.Random;
@@ -22,13 +22,18 @@ public class Combat {
         this.adversaire = adversaire;
     }
 
-    public void lancer() {
+    public boolean lancer() {
         System.out.println("\nDébut du combat entre " + joueur.getNom() + " et " + adversaire.getNom());
         attendreEntreePourContinuer();
 
         while (joueur.getPv() > 0 && adversaire.getPv() > 0) {
             System.out.print("\033[H\033[2J");
             System.out.flush();
+            
+            System.out.print("\nStats joueur : " );
+            joueur.afficherStats();
+            System.out.print("\nStats ennemi : " );
+            adversaire.afficherStats();
 
             joueur.resetDefense();
             adversaire.resetDefense();
@@ -53,15 +58,16 @@ public class Combat {
             afficherPv();
             attendreEntreePourContinuer();
 
-            if (adversaire.getPv() <= 0) {
-                System.out.println("\nVous avez vaincu " + adversaire.getNom() + " !");
-                break;
-            }
             if (joueur.getPv() <= 0) {
                 System.out.println("\nVous êtes mort...");
-                break;
+                return false;
+            }
+            if (adversaire.getPv() <= 0) {
+                System.out.println("\nVous avez vaincu " + adversaire.getNom() + " !");
+                return true;
             }
         }
+        return false;
     }
 
     private Action demanderActionJoueur(List<Action> actions) {

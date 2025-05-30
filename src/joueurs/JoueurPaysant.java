@@ -2,9 +2,9 @@ package joueurs;
 
 import java.util.List;
 
+import game.Action;
 import interfacesPersonnages.Paysant;
 import model.Personnage;
-import Game.Action;
 
 public class JoueurPaysant extends Joueur implements Paysant {
     
@@ -35,12 +35,12 @@ public class JoueurPaysant extends Joueur implements Paysant {
 
     @Override
     public void attaqueMelee(Personnage cible) {
-        cible.recoitDegatsMelee(force);
+        cible.recoitDegatsMelee(getForce());
     }
 
     @Override
     public void attaqueDistance(Personnage cible) {
-        cible.recoitDegatsDistance(intelligence); 
+        cible.recoitDegatsDistance(getIntelligence()); 
     }
 
     @Override
