@@ -9,8 +9,22 @@ public abstract class Joueur extends Personnage {
     protected HashMap<String, Item> inventaire = new HashMap<String, Item>();
     protected HashMap<TypeItem, Item> equipement = new HashMap<TypeItem, Item>();
     protected int money;
-    public static Joueur instance;
-    
+
+    @Override
+    public int getForce() {
+        return force + equipement.values().stream().mapToInt(Item::getForce).sum();
+    }
+
+    @Override
+    public int getIntelligence() {
+        return intelligence + equipement.values().stream().mapToInt(Item::getIntel).sum();
+    }
+
+    @Override
+    public int getAgilite() {
+        return agilite + equipement.values().stream().mapToInt(Item::getAgi).sum();
+    }
+
     public int getMoney() {
         return money;
     }
@@ -57,5 +71,16 @@ public abstract class Joueur extends Personnage {
     	equipement.remove(itemEquip.getType());
     	System.out.println("L'item : " + itemEquip.getNom() + "est déséquipé.");
     	newItem(itemEquip);
+    }
+
+    public void gagneUnNiveau() {
+        this.addLvl();
+        this.addPVMax(5);
+        this.addPV(5);
+        this.addMoney(5);
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
+        System.out.println("Vous gagnez 1 niveau, vous recevez 1 Point de compétence, 5 Points de vie et 5 pièces d'or");
     }
 }

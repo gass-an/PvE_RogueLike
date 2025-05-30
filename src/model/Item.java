@@ -2,18 +2,21 @@ package model;
 public class Item {
 	private TypeItem type;
 	private String nom;
-	private int prix;
+	private int prix, number;
 	private int force, agilite, intelligence;
-	private int niv;
 	 
-	public Item(TypeItem typeItem, String nom, int prix, int force, int agilite, int intelligence, int niv) {
+	public Item(int number, TypeItem typeItem, String nom, int prix, int force, int agilite, int intelligence) {
+		this.number = number;
 		this.type = typeItem;
 		this.nom = nom;
 		this.prix = prix;
 		this.force = force;
 		this.agilite = agilite;
 		this.intelligence = intelligence;
-		this.niv = niv;
+	}
+
+	public int getNumber() {
+		return number;
 	}
 	
 	public String getNom() {
@@ -40,11 +43,8 @@ public class Item {
 		return type;
 	}
 	
-	public int getNiv() {
-		return niv;
-	}
 	
 	public void afficherItem() {
-		System.out.println(nom  + " | Force : " + force + " | Type : " + type + " | Agilite : " + agilite + " | Intelligence : " + intelligence + " | Niv : " + niv);
+		System.out.println(number  +" | " + nom  +  " | Type : " + type + " | Force : " + force + " | Agilite : " + agilite + " | Intelligence : " + intelligence);
 	}
 }

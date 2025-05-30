@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 import java.util.Scanner;
 
@@ -10,15 +10,33 @@ public class EvolutionJoueur {
     private final Scanner scanner = Input.getScanner();
     private final int levelForEvolution = 6;
     private final Joueur joueur;
+    private boolean estPaysant = true;
     
     public EvolutionJoueur(Joueur joueur){
         this.joueur=joueur;
     }
 
+    public void gagnerPointCompetence() {
+        int points = 1;
+
+        System.out.println("\nVous avez gagner " + points + " point de compétence à placer dans une des catégories suivantes :\n"+ 
+        "1. Force\n2. Intelligence\n3. Agilité");
+        
+        int choix = scanner.nextInt();
+
+        switch (choix) {
+            case 1 -> joueur.addForce(points);
+            case 2 -> joueur.addIntelligence(points);
+            case 3 -> joueur.addAgilite(points);
+        }
+    }
+
     public boolean evolutionEstDisponible(){
         return (
-            joueur.getForce() >= levelForEvolution || 
-            joueur.getIntelligence() >= levelForEvolution
+            estPaysant && (
+                joueur.getForce() >= levelForEvolution || 
+                joueur.getIntelligence() >= levelForEvolution
+                )
             );
     }
 
@@ -34,11 +52,13 @@ public class EvolutionJoueur {
                 switch (choix) {
                     case 1 -> {
                         System.out.println("Vous êtes désormais un barbare !");
+                        estPaysant = false;
                         return devientBarbare(joueur);
                         }
                 
                     case 2 -> {
                         System.out.println("Vous êtes désormais un magicien !");
+                        estPaysant = false;
                         return devientMagicien(joueur);
                         }
                         
@@ -56,6 +76,7 @@ public class EvolutionJoueur {
             switch (choix) {
                 case 1 -> {
                     System.out.println("Vous êtes désormais un barbare !");
+                    estPaysant = false;
                     return devientBarbare(joueur);
                     }
                 default -> {
@@ -72,6 +93,7 @@ public class EvolutionJoueur {
             switch (choix) {
                 case 1 -> {
                     System.out.println("Vous êtes désormais un barbare !");
+                    estPaysant = false;
                     return devientMagicien(joueur);
                     }
                 default ->{ 

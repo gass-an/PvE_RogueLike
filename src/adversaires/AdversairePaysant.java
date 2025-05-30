@@ -3,9 +3,9 @@ package adversaires;
 import java.util.List;
 import java.util.Random;
 
+import game.Action;
 import interfacesPersonnages.Paysant;
 import model.Personnage;
-import Game.Action;
 
 public class AdversairePaysant extends Adversaire implements Paysant {
     

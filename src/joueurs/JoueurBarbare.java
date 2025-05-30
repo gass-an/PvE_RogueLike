@@ -2,9 +2,9 @@ package joueurs;
 
 import java.util.List;
 
+import game.Action;
 import interfacesPersonnages.Barbare;
 import model.Personnage;
-import Game.Action;
 
 
 public class JoueurBarbare extends Joueur implements Barbare {
@@ -24,7 +24,7 @@ public class JoueurBarbare extends Joueur implements Barbare {
 
     @Override
     public void attaqueMelee(Personnage cible) {
-        cible.recoitDegatsDistance(force);            
+        cible.recoitDegatsDistance(getForce() + 1);            
     }
 
     @Override

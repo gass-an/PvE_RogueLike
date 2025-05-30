@@ -1,7 +1,8 @@
 package model;
 
 import java.util.List;
-import Game.Action;
+
+import game.Action;
 
 public abstract class Personnage {    
     protected String nom;
@@ -105,7 +106,7 @@ public abstract class Personnage {
 
     public void recoitDegatsDistance(int degatsDistance){
         if (onDefenseDistance){
-            degatsDistance = degatsDistance - agilite;
+            degatsDistance = degatsDistance - getAgilite();
         }
         if (degatsDistance < 0) {degatsDistance = 0;}
         this.removePV(degatsDistance);
@@ -113,7 +114,7 @@ public abstract class Personnage {
 
     public void recoitDegatsMelee(int degatsMelee){
         if (onDefenseMelee){
-            degatsMelee = degatsMelee - agilite;
+            degatsMelee = degatsMelee - getAgilite();
         }
         if (degatsMelee < 0) {degatsMelee = 0;}
         this.removePV(degatsMelee);
@@ -129,9 +130,9 @@ public abstract class Personnage {
         System.out.println("\nNom: " + nom);
         System.out.println("PV: " + pv);
         System.out.println("Level: " + lvl);
-        System.out.println("Force: " + force);
-        System.out.println("Intelligence: " + intelligence);
-        System.out.println("Agilité: " + agilite);
+        System.out.println("Force: " + getForce());
+        System.out.println("Intelligence: " + getIntelligence());
+        System.out.println("Agilité: " + getAgilite());
     }
     
 }

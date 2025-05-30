@@ -3,9 +3,9 @@ package adversaires;
 import java.util.List;
 import java.util.Random;
 
+import game.Action;
 import interfacesPersonnages.Barbare;
 import model.Personnage;
-import Game.Action;
 
 public class AdversaireBarbare extends Adversaire implements Barbare {
     public AdversaireBarbare(String nom, int lvl){
