@@ -3,9 +3,13 @@ package model;
 import java.util.HashMap;
 import java.util.Random;
 
+import joueurs.Joueur;
+import model.Item;
+
 public class Shop{
 	private HashMap<Integer, Item> shop = new HashMap<Integer, Item>();
 	private Random random = new Random();
+	private Personnage personnage;
 	
 	public TypeItem getRandomType() {
 		TypeItem[] values = TypeItem.values();
