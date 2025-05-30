@@ -38,7 +38,7 @@ public class Game {
                     System.out.println(
                         "Félicitation vous avez atteint le niveau 10, fin du jeu !\n" + 
                         "Merci d'avoir jouer !\n" +
-                        "\n PvE RogueLike creator's : Adrien et Anthony"
+                        "\nPvE RogueLike creator's : Adrien et Anthony"
                         );
                     return;
                 }
