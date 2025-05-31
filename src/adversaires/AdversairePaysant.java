@@ -55,14 +55,6 @@ public class AdversairePaysant extends Adversaire implements Paysant {
         System.out.println(String.format("\nJe suis %s le Paysant", nom));  
     }
 
-    public static void main(String[] args) {
-        AdversairePaysant adv1 = new AdversairePaysant("Test1", 0);
-        AdversairePaysant adv2 = new AdversairePaysant("Test2", 10);
-
-        adv1.afficherStats();
-        adv2.afficherStats();
-    }
-
     @Override
     public List<Action> getActionsDisponibles() {
     return List.of(
@@ -71,5 +63,13 @@ public class AdversairePaysant extends Adversaire implements Paysant {
         Action.PARADE_MELEE,
         Action.PARADE_DISTANCE
         );
+    }
+
+    public static void main(String[] args) {
+        AdversairePaysant adv1 = new AdversairePaysant("Test1", 0);
+        AdversairePaysant adv2 = new AdversairePaysant("Test2", 10);
+
+        adv1.afficherStats();
+        adv2.afficherStats();
     }
 }

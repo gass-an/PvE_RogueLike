@@ -43,14 +43,6 @@ public class AdversaireBarbare extends Adversaire implements Barbare {
     public void sePresente() {
         System.out.println(String.format("\nJe suis %s le Barbare", nom));  
     }
-
-    public static void main(String[] args) {
-        AdversaireBarbare adv1 = new AdversaireBarbare("Barbare 1", 0);
-        AdversaireBarbare adv2 = new AdversaireBarbare("Barbare 2", 10);
-
-        adv1.afficherStats();
-        adv2.afficherStats();
-    }
     
     @Override
     public List<Action> getActionsDisponibles() {
@@ -59,5 +51,13 @@ public class AdversaireBarbare extends Adversaire implements Barbare {
         Action.PARADE_MELEE,
         Action.PARADE_DISTANCE
         );
+    }
+
+        public static void main(String[] args) {
+        AdversaireBarbare adv1 = new AdversaireBarbare("Barbare 1", 0);
+        AdversaireBarbare adv2 = new AdversaireBarbare("Barbare 2", 10);
+
+        adv1.afficherStats();
+        adv2.afficherStats();
     }
 }

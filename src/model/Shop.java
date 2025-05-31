@@ -20,14 +20,15 @@ public class Shop{
         
 			int stat1 = rand.nextInt(nbStats + 1);
 			int stat2 = rand.nextInt(nbStats + 1);
-			
+			int randomPrix = rand.nextInt(10) + 5;
+
 			int min = Math.min(stat1, stat2);
 			int max = Math.max(stat1, stat2);
 
 
 			TypeItem type = getRandomType();
 			String nom = type.toString().toLowerCase() + " " + (i+1);
-			int prix = 5;
+			int prix = randomPrix;
 			int force = min;
 			int agilite = max - min;
 			int intelligence = nbStats - max;

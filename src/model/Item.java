@@ -43,8 +43,10 @@ public class Item {
 		return type;
 	}
 	
-	
 	public void afficherItem() {
-		System.out.println(number  +" | " + nom  +  " | Type : " + type + " | Force : " + force + " | Agilite : " + agilite + " | Intelligence : " + intelligence);
+		System.out.println(
+			number  + " | " + nom  +  " | Type : " + type + 
+			" | Force : " + force + " | Agilite : " + agilite + 
+			" | Intelligence : " + intelligence + " | Prix : " + prix);
 	}
 }

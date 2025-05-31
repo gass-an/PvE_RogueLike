@@ -44,13 +44,6 @@ public class AdversaireMagicien extends Adversaire implements Magicien{
         System.out.println(String.format("\nJe suis %s le Magicien", nom));  
     }
 
-    public static void main(String[] args) {
-        AdversaireMagicien adv1 = new AdversaireMagicien("Mage 1", 0);
-        AdversaireMagicien adv2 = new AdversaireMagicien("Mage 2", 10);
-
-        adv1.afficherStats();
-        adv2.afficherStats();
-    }
     @Override
     public List<Action> getActionsDisponibles() {
     return List.of(
@@ -58,5 +51,13 @@ public class AdversaireMagicien extends Adversaire implements Magicien{
         Action.PARADE_MELEE,
         Action.PARADE_DISTANCE
         );
+    }
+
+    public static void main(String[] args) {
+        AdversaireMagicien adv1 = new AdversaireMagicien("Mage 1", 0);
+        AdversaireMagicien adv2 = new AdversaireMagicien("Mage 2", 10);
+
+        adv1.afficherStats();
+        adv2.afficherStats();
     }
 }
