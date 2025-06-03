@@ -144,5 +144,5 @@ Le gameplay démarre, demande le nom du joueur, la répartition des points, puis
 ## 👥 Auteurs
 
 - **Adrien ROYER**  
-- **Anthony GASS**
+- **Anthony GASS**  
 Etudiants de l'UNC en dernière année de Licence MIAGE.
