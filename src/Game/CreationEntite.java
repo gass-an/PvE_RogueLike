@@ -11,9 +11,23 @@ import adversaires.AdversaireMagicien;
 import adversaires.AdversaireNom;
 import adversaires.AdversairePaysant;
 
+/**
+ * Classe responsable de la création des entités (joueur et adversaire).
+ * Elle interagit avec l’utilisateur pour générer un {@link JoueurPaysant} au début de la partie,
+ * puis génère aléatoirement un {@link Adversaire} (paysan, barbare ou magicien) selon le niveau du joueur.
+ */
 public class CreationEntite {
     private final Scanner scanner = Input.getScanner();
 
+    /**
+     * Crée un joueur de type Paysant en demandant :
+     * <ul>
+     *   <li>Son nom</li>
+     *   <li>La répartition de 3 points de compétences (force, intelligence, agilité)</li>
+     * </ul>
+     *
+     * @return Nouvelle instance de {@link JoueurPaysant} initialisée avec les valeurs saisies.
+     */
     public Joueur creationJoueur(){
         String nom;
         int points = 3;
@@ -41,6 +55,14 @@ public class CreationEntite {
         return new JoueurPaysant(nom, force, intel, agi);
     }
 
+    /**
+     * Génère un adversaire aléatoire en fonction du niveau {@code level}.
+     * Choisit au hasard entre {@link AdversairePaysant}, {@link AdversaireBarbare} et {@link AdversaireMagicien}.
+     *
+     * @param level Niveau du joueur pour calibrer les statistiques de l’adversaire.
+     * @return Nouvelle instance d’une sous-classe de {@link Adversaire}.
+     * @throws IllegalStateException si la valeur aléatoire obtenue n’est pas dans [0, 2].
+     */
     public Adversaire creationAdversaire(int level) {
         Random rand = new Random();
         int randInt = rand.nextInt(3);

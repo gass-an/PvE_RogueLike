@@ -7,8 +7,22 @@ import game.Action;
 import interfacesPersonnages.Paysant;
 import model.Personnage;
 
+/**
+ * Classe représentant un adversaire de type Paysant.
+ * Hérite de {@link Adversaire} et implémente l’interface {@link Paysant}.
+ * Le Paysant peut attaquer à la fois en mêlée et à distance, et parer.
+ */
 public class AdversairePaysant extends Adversaire implements Paysant {
     
+    /**
+     * Constructeur principal.
+     *
+     * @param nom Nom personnalisé du Paysant.
+     * @param lvl Niveau (niveau de jeu) influençant la génération des compétences.
+     *            Les trois statistiques (force, intelligence, agilité) sont réparties
+     *            aléatoirement de sorte que leur somme soit égale à lvl + 3. Les PV max sont
+     *            tirés aléatoirement en fonction de lvl.
+     */
     public AdversairePaysant(String nom, int lvl){
         int totalStats = lvl + 3;
         this.nom = nom;
@@ -30,31 +44,63 @@ public class AdversairePaysant extends Adversaire implements Paysant {
     }
 
 
+    /**
+     * Attaque au corps à corps : inflige des dégâts basés sur la force.
+     *
+     * @param cible La cible (instance de {@link Personnage}) subissant les dégâts en mêlée.
+     */
     @Override
     public void attaqueMelee(Personnage cible) {
         cible.recoitDegatsMelee(force);
     }
 
+    /**
+     * Attaque à distance : inflige des dégâts basés sur l’intelligence.
+     *
+     * @param cible La cible (instance de {@link Personnage}) subissant les dégâts à distance.
+     */
     @Override
     public void attaqueDistance(Personnage cible) {
         cible.recoitDegatsDistance(intelligence); 
     }
 
+    /**
+     * Définit l’état de défense contre une attaque en mêlée.
+     * Si true, les dégâts reçus en mêlée seront réduits par l’agilité.
+     */
     @Override
     public void paradeMelee() {
         this.onDefenseMelee = true; 
     }
 
+    /**
+     * Définit l’état de défense contre une attaque à distance.
+     * Si true, les dégâts reçus à distance seront réduits par l’agilité.
+     */
     @Override
     public void paradeDistance() {
         this.onDefenseDistance = true; 
     }
 
+    /**
+     * Présente l’adversaire Paysant en affichant son nom et la mention « le Paysant ».
+     */
     @Override
     public void sePresente() {
         System.out.println(String.format("\nJe suis %s le Paysant", nom));  
     }
 
+    /**
+     * Retourne la liste des actions disponibles pour un Paysant :
+     * <ul>
+     *   <li>ATTAQUE_MELEE</li>
+     *   <li>ATTAQUE_DISTANCE</li>
+     *   <li>PARADE_MELEE</li>
+     *   <li>PARADE_DISTANCE</li>
+     * </ul>
+     *
+     * @return Liste non modifiable des {@link Action} disponibles.
+     */
     @Override
     public List<Action> getActionsDisponibles() {
     return List.of(

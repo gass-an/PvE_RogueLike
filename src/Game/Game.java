@@ -9,6 +9,17 @@ import joueurs.Joueur;
 import model.Item;
 import model.Shop;
 
+/**
+ * Classe principale du jeu « PvE RogueLike ».
+ * Gère la boucle de partie :
+ * <ol>
+ *   <li>Création du joueur</li>
+ *   <li>Enchaînement des combats contre un maximum de 10 adversaires</li>
+ *   <li>Évolution du joueur</li>
+ *   <li>Accès au shop (tous les 2 combats)</li>
+ *   <li>Fin de partie lorsque le joueur atteint le niveau 10 ou meurt</li>
+ * </ol>
+ */
 public class Game {
     private Joueur joueur;
     private Adversaire adversaire;
@@ -18,6 +29,11 @@ public class Game {
     private boolean joueurVainqueur;
     private int combatCounter = 0;
     
+    /**
+     * Démarre la boucle principale du jeu.
+     * Initialise le joueur, puis enchaîne :
+     * combats / évolutions / shop / fin de partie.
+     */
     public void start() {
         AdversaireNom.resetNoms();
         
@@ -66,6 +82,14 @@ public class Game {
         }   
     } 
 
+    /**
+     * Gère l’achat d’un item dans le {@link Shop}.
+     * Affiche l’argent du joueur, lit un entier correspondant
+     * au numéro de l’item (ou 0 pour ignorer). Achète et équipe le
+     * cas échéant si le joueur a assez d’argent.
+     *
+     * @param shop Instance de {@link Shop} contenant la liste des items disponibles.
+     */
     private void gestionAchat(Shop shop) {
         Scanner scanner = Input.getScanner();
         System.out.println("Votre argent : " + joueur.getMoney());
