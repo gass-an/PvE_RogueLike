@@ -111,8 +111,6 @@ Le gameplay démarre, demande le nom du joueur, la répartition des points, puis
 
 **Si soucis il y a, voici la marche à suivre :**  
 
---- 
-
 ### 📦 Compilation (Windows PowerShell)
 
 1. **Créer le dossier `bin/`** (s’il n’existe pas) :  
@@ -123,8 +121,6 @@ Le gameplay démarre, demande le nom du joueur, la répartition des points, puis
     ```powershell
    javac -d bin (Get-ChildItem -Recurse -Filter *.java -Path src | ForEach-Object { $_.FullName })
    ```
-
----
 
 ### 📦 Création du JAR exécutable
 
