@@ -105,9 +105,11 @@ PvE-RogueLike/
 Exécute simplement :
 
 ```powershell
-   java -jar PvE-RogueLike.jar
-   ```
+java -jar PvE-RogueLike.jar
+```
 Le gameplay démarre, demande le nom du joueur, la répartition des points, puis enchaîne les combats, évolutions et passages au shop.
+
+**Si soucis il y a, voici la marche à suivre :**  
 
 --- 
 
@@ -127,12 +129,12 @@ Le gameplay démarre, demande le nom du joueur, la répartition des points, puis
 ### 📦 Création du JAR exécutable
 
 1. **Créer un fichier `manifest.txt`** à la racine du projet, contenant :  
-```powershell
-   Main-Class: game.Start
+    ```powershell
+    Main-Class: game.Start
    ```
 2. **Générer le JAR** : 
 
-```powershell
+    ```powershell
     jar cfm PvE-RogueLike.jar manifest.txt -C bin .
    ```
 
@@ -141,5 +143,6 @@ Le gameplay démarre, demande le nom du joueur, la répartition des points, puis
 
 ## 👥 Auteurs
 
-- **Adrien**  
-- **Anthony**
+- **Adrien ROYER**  
+- **Anthony GASS**
+Etudiants de l'UNC en dernière année de Licence MIAGE.
