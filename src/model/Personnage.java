@@ -20,7 +20,7 @@ public abstract class Personnage {
 
     /**
      * Retourne la liste des actions disponibles pour ce personnage.
-     * Doit être implémentée par chaque sous-classe concrète (JoueurPaysant,
+     * Doit être implémentée par chaque sous-classe concrète (JoueurPaysan,
      * AdversaireBarbare, etc.).
      *
      * @return {@link java.util.List} de {@link game.Action}.

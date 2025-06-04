@@ -3,13 +3,13 @@ package joueurs;
 import java.util.List;
 
 import game.Action;
-import interfacesPersonnages.Paysant;
+import interfacesPersonnages.Paysan;
 import model.Personnage;
 
 /**
- * Classe représentant un joueur de type Paysant.
- * Hérite de {@link Joueur} et implémente l’interface {@link Paysant}.
- * Le joueur Paysant a :
+ * Classe représentant un joueur de type Paysan.
+ * Hérite de {@link Joueur} et implémente l’interface {@link Paysan}.
+ * Le joueur Paysan a :
  * <ul>
  *   <li>Des PV max de base égal à 30</li>
  *   <li>Un niveau de départ à 0</li>
@@ -17,7 +17,7 @@ import model.Personnage;
  * </ul>
  * Il peut attaquer à la fois en mêlée et à distance, et parer.
  */
-public class JoueurPaysant extends Joueur implements Paysant {
+public class JoueurPaysan extends Joueur implements Paysan {
     
     /**
      * Constructeur principal.
@@ -27,7 +27,7 @@ public class JoueurPaysant extends Joueur implements Paysant {
      * @param intelligence Points d’intelligence initiaux.
      * @param agilite      Points d’agilité initiaux.
      */
-    public JoueurPaysant(String nom, int force, int intelligence, int agilite) {
+    public JoueurPaysan(String nom, int force, int intelligence, int agilite) {
         this.nom = nom;
         this.force = force;
         this.intelligence = intelligence;
@@ -50,7 +50,7 @@ public class JoueurPaysant extends Joueur implements Paysant {
      * @param lvl          Niveau actuel.
      * @param money        Somme d’argent actuelle.
      */
-    public JoueurPaysant(
+    public JoueurPaysan(
         String nom, int force, int intelligence, int agilite,
         int pv, int pvMax, int lvl, int money) {
             this.nom=nom;
@@ -102,7 +102,7 @@ public class JoueurPaysant extends Joueur implements Paysant {
     }
 
     /**
-     * Retourne la liste des actions disponibles pour un Paysant (joueur) :
+     * Retourne la liste des actions disponibles pour un Paysan (joueur) :
      * <ul>
      *   <li>ATTAQUE_MELEE</li>
      *   <li>ATTAQUE_DISTANCE</li>

@@ -3,10 +3,10 @@ package interfacesPersonnages;
 import model.Personnage;
 
 /**
- * Interface définissant le comportement d’un personnage de type Paysant.
- * Un Paysant peut attaquer à distance, attaquer en mêlée, parer en distance et parer en mêlée.
+ * Interface définissant le comportement d’un personnage de type Paysan.
+ * Un Paysan peut attaquer à distance, attaquer en mêlée, parer en distance et parer en mêlée.
  */
-public interface Paysant {
+public interface Paysan {
     
     /**
      * Effectue une attaque à distance sur la cible.

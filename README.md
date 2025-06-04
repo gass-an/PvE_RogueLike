@@ -10,7 +10,7 @@ Le joueur incarne un personnage qui monte de niveau, évolue en Barbare ou Magic
 - **Création de personnage**  
   - Choix du nom  
   - Répartition de 3 points de compétences (Force, Intelligence, Agilité)  
-  - Début en tant que Paysant
+  - Début en tant que Paysan
 
 - **Combat tour par tour**  
   - Affichage des PV et statistiques à chaque tour  
@@ -28,8 +28,8 @@ Le joueur incarne un personnage qui monte de niveau, évolue en Barbare ou Magic
   - À chaque victoire, le joueur gagne un niveau (+5 PV max, +5 PV courants, +5 pièces d’or)  
   - Un point de compétence est attribué (à placer dans Force, Intelligence ou Agilité)  
   - Si la Force ≥ 6 ou l’Intelligence ≥ 6 (seuil défini), le joueur peut évoluer :  
-    - Paysant → Barbare (force finale = force + intelligence, intelligence = 0)  
-    - Paysant → Magicien (intelligence finale = intelligence + force, force = 0)  
+    - Paysan → Barbare (force finale = force + intelligence, intelligence = 0)  
+    - Paysan → Magicien (intelligence finale = intelligence + force, force = 0)  
   - L’équipement et l’inventaire sont conservés après évolution
 
 - **Boutique (Shop) tous les 2 combats**  
@@ -68,7 +68,7 @@ PvE-RogueLike/
 │ │ ├── Adversaire.java
 │ │ ├── AdversaireBarbare.java
 │ │ ├── AdversaireMagicien.java
-│ │ ├── AdversairePaysant.java
+│ │ ├── AdversairePaysan.java
 │ │ └── AdversaireNom.java
 │ ├── game/
 │ │ ├── Action.java
@@ -81,12 +81,12 @@ PvE-RogueLike/
 │ ├── interfacesPersonnages/
 │ │ ├── Barbare.java
 │ │ ├── Magicien.java
-│ │ └── Paysant.java
+│ │ └── Paysan.java
 │ ├── joueurs/
 │ │ ├── Joueur.java
 │ │ ├── JoueurBarbare.java
 │ │ ├── JoueurMagicien.java
-│ │ └── JoueurPaysant.java
+│ │ └── JoueurPaysan.java
 │ └── model/
 │   ├── Item.java
 │   ├── Personnage.java

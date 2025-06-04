@@ -3,30 +3,30 @@ package game;
 import java.util.Random;
 import java.util.Scanner;
 
-import joueurs.JoueurPaysant;
+import joueurs.JoueurPaysan;
 import joueurs.Joueur;
 import adversaires.Adversaire;
 import adversaires.AdversaireBarbare;
 import adversaires.AdversaireMagicien;
 import adversaires.AdversaireNom;
-import adversaires.AdversairePaysant;
+import adversaires.AdversairePaysan;
 
 /**
  * Classe responsable de la création des entités (joueur et adversaire).
- * Elle interagit avec l’utilisateur pour générer un {@link JoueurPaysant} au début de la partie,
+ * Elle interagit avec l’utilisateur pour générer un {@link JoueurPaysan} au début de la partie,
  * puis génère aléatoirement un {@link Adversaire} (paysan, barbare ou magicien) selon le niveau du joueur.
  */
 public class CreationEntite {
     private final Scanner scanner = Input.getScanner();
 
     /**
-     * Crée un joueur de type Paysant en demandant :
+     * Crée un joueur de type Paysan en demandant :
      * <ul>
      *   <li>Son nom</li>
      *   <li>La répartition de 3 points de compétences (force, intelligence, agilité)</li>
      * </ul>
      *
-     * @return Nouvelle instance de {@link JoueurPaysant} initialisée avec les valeurs saisies.
+     * @return Nouvelle instance de {@link JoueurPaysan} initialisée avec les valeurs saisies.
      */
     public Joueur creationJoueur(){
         String nom;
@@ -52,12 +52,12 @@ public class CreationEntite {
                 points = 3; intel = 0; agi = 0; force = 0;
             }
         }
-        return new JoueurPaysant(nom, force, intel, agi);
+        return new JoueurPaysan(nom, force, intel, agi);
     }
 
     /**
      * Génère un adversaire aléatoire en fonction du niveau {@code level}.
-     * Choisit au hasard entre {@link AdversairePaysant}, {@link AdversaireBarbare} et {@link AdversaireMagicien}.
+     * Choisit au hasard entre {@link AdversairePaysan}, {@link AdversaireBarbare} et {@link AdversaireMagicien}.
      *
      * @param level Niveau du joueur pour calibrer les statistiques de l’adversaire.
      * @return Nouvelle instance d’une sous-classe de {@link Adversaire}.
@@ -69,7 +69,7 @@ public class CreationEntite {
 
         switch (randInt) {
             case 0 -> {
-                return new AdversairePaysant(AdversaireNom.getRandomNom(), level);
+                return new AdversairePaysan(AdversaireNom.getRandomNom(), level);
             }
         
             case 1 -> {

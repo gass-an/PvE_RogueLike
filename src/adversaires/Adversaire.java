@@ -10,7 +10,7 @@ import model.Personnage;
 public abstract class Adversaire extends Personnage{
     /**
      * Affiche une présentation textuelle de l’adversaire (son nom et son rôle).
-     * Doit être implémenté par chaque sous-classe concrète (Barbare, Magicien, Paysant).
+     * Doit être implémenté par chaque sous-classe concrète (Barbare, Magicien, Paysan).
      */
     public abstract void sePresente();
 }

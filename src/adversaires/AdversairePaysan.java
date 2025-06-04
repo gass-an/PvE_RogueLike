@@ -4,26 +4,26 @@ import java.util.List;
 import java.util.Random;
 
 import game.Action;
-import interfacesPersonnages.Paysant;
+import interfacesPersonnages.Paysan;
 import model.Personnage;
 
 /**
- * Classe représentant un adversaire de type Paysant.
- * Hérite de {@link Adversaire} et implémente l’interface {@link Paysant}.
- * Le Paysant peut attaquer à la fois en mêlée et à distance, et parer.
+ * Classe représentant un adversaire de type Paysan.
+ * Hérite de {@link Adversaire} et implémente l’interface {@link Paysan}.
+ * Le Paysan peut attaquer à la fois en mêlée et à distance, et parer.
  */
-public class AdversairePaysant extends Adversaire implements Paysant {
+public class AdversairePaysan extends Adversaire implements Paysan {
     
     /**
      * Constructeur principal.
      *
-     * @param nom Nom personnalisé du Paysant.
+     * @param nom Nom personnalisé du Paysan.
      * @param lvl Niveau (niveau de jeu) influençant la génération des compétences.
      *            Les trois statistiques (force, intelligence, agilité) sont réparties
      *            aléatoirement de sorte que leur somme soit égale à lvl + 3. Les PV max sont
      *            tirés aléatoirement en fonction de lvl.
      */
-    public AdversairePaysant(String nom, int lvl){
+    public AdversairePaysan(String nom, int lvl){
         int totalStats = lvl + 3;
         this.nom = nom;
         this.lvl = lvl;
@@ -83,15 +83,15 @@ public class AdversairePaysant extends Adversaire implements Paysant {
     }
 
     /**
-     * Présente l’adversaire Paysant en affichant son nom et la mention « le Paysant ».
+     * Présente l’adversaire Paysan en affichant son nom et la mention « le Paysan ».
      */
     @Override
     public void sePresente() {
-        System.out.println(String.format("\nJe suis %s le Paysant", nom));  
+        System.out.println(String.format("\nJe suis %s le Paysan", nom));  
     }
 
     /**
-     * Retourne la liste des actions disponibles pour un Paysant :
+     * Retourne la liste des actions disponibles pour un Paysan :
      * <ul>
      *   <li>ATTAQUE_MELEE</li>
      *   <li>ATTAQUE_DISTANCE</li>
@@ -112,8 +112,8 @@ public class AdversairePaysant extends Adversaire implements Paysant {
     }
 
     public static void main(String[] args) {
-        AdversairePaysant adv1 = new AdversairePaysant("Test1", 0);
-        AdversairePaysant adv2 = new AdversairePaysant("Test2", 10);
+        AdversairePaysan adv1 = new AdversairePaysan("Test1", 0);
+        AdversairePaysan adv2 = new AdversairePaysan("Test2", 10);
 
         adv1.afficherStats();
         adv2.afficherStats();

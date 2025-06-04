@@ -7,7 +7,7 @@ import java.util.Scanner;
 import adversaires.Adversaire;
 import interfacesPersonnages.Barbare;
 import interfacesPersonnages.Magicien;
-import interfacesPersonnages.Paysant;
+import interfacesPersonnages.Paysan;
 import joueurs.Joueur;
 import model.Personnage;
 
@@ -121,7 +121,7 @@ public class Combat {
      * Utilise {@code instanceof} pour dispatcher vers la bonne implémentation d’interface :
      * <ul>
      *   <li>Si {@code perso} est {@link Barbare}, appelle {@link Barbare#paradeMelee()} ou {@link Barbare#paradeDistance()}</li>
-     *   <li>Si {@code perso} est {@link Paysant}, appelle {@link Paysant#paradeMelee()} ou {@link Paysant#paradeDistance()}</li>
+     *   <li>Si {@code perso} est {@link Paysan}, appelle {@link Paysan#paradeMelee()} ou {@link Paysan#paradeDistance()}</li>
      *   <li>Si {@code perso} est {@link Magicien}, appelle {@link Magicien#paradeMelee()} ou {@link Magicien#paradeDistance()}</li>
      * </ul>
      *
@@ -132,13 +132,13 @@ public class Combat {
         switch (action) {
             case PARADE_MELEE -> {
                 if (perso instanceof Barbare b) b.paradeMelee();
-                else if (perso instanceof Paysant p) p.paradeMelee();
+                else if (perso instanceof Paysan p) p.paradeMelee();
                 else if (perso instanceof Magicien m) m.paradeMelee();
             }
             
             case PARADE_DISTANCE -> {
                 if (perso instanceof Barbare b) b.paradeDistance();
-                else if (perso instanceof Paysant p) p.paradeDistance();
+                else if (perso instanceof Paysan p) p.paradeDistance();
                 else if (perso instanceof Magicien m) m.paradeDistance();
             }
             
@@ -152,9 +152,9 @@ public class Combat {
      * Utilise {@code instanceof} pour dispatcher l’appel à la bonne méthode de l’interface :
      * <ul>
      *   <li>Si {@code action} est ATTAQUE_MELEE et {@code attaquant} est {@link Barbare}, appelle {@link Barbare#attaqueMelee(Personnage)}</li>
-     *   <li>Si {@code action} est ATTAQUE_MELEE et {@code attaquant} est {@link Paysant}, appelle {@link Paysant#attaqueMelee(Personnage)}</li>
+     *   <li>Si {@code action} est ATTAQUE_MELEE et {@code attaquant} est {@link Paysan}, appelle {@link Paysan#attaqueMelee(Personnage)}</li>
      *   <li>Si {@code action} est ATTAQUE_DISTANCE et {@code attaquant} est {@link Magicien}, appelle {@link Magicien#attaqueDistance(Personnage)}</li>
-     *   <li>Si {@code action} est ATTAQUE_DISTANCE et {@code attaquant} est {@link Paysant}, appelle {@link Paysant#attaqueDistance(Personnage)}</li>
+     *   <li>Si {@code action} est ATTAQUE_DISTANCE et {@code attaquant} est {@link Paysan}, appelle {@link Paysan#attaqueDistance(Personnage)}</li>
      * </ul>
      *
      * @param attaquant Instance de {@link Personnage} réalisant l’attaque.
@@ -165,13 +165,13 @@ public class Combat {
         switch (action) {
             case ATTAQUE_MELEE -> {
                 if (attaquant instanceof Barbare b)  b.attaqueMelee(cible);
-                else if (attaquant instanceof Paysant p) p.attaqueMelee(cible);
+                else if (attaquant instanceof Paysan p) p.attaqueMelee(cible);
                 
             }
 
             case ATTAQUE_DISTANCE -> {
                 if (attaquant instanceof Magicien m) m.attaqueDistance(cible);
-                else if (attaquant instanceof Paysant p) p.attaqueDistance(cible);
+                else if (attaquant instanceof Paysan p) p.attaqueDistance(cible);
                 
             }
             
